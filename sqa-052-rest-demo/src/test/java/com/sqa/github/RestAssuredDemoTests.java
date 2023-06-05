@@ -17,10 +17,12 @@ public class RestAssuredDemoTests implements TestLogger {
     @Test
     public void verifyHealthcheckTest() {
         given()
+                .baseUri("https://api.github.com")
                 .when()
-                .get("https://api.github.com/zen")
+                    .get("/zen")
                 .then()
-                .statusCode(200);
+                    .log().all() // everything we are using after then it will be logged -> logs all response
+                    .statusCode(200);
     }
 
     /*
