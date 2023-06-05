@@ -47,7 +47,13 @@ public class RestAssuredDemoTests implements TestLogger {
     */
     @Test
     public void verifyIssuesContainTest() {
-
+        given()
+                .baseUri(BASE_URI)
+                .when()
+                .get("/repos/musagulov/sqa/issues")
+                .then()
+                .log().ifValidationFails()
+                .body("message", Matchers.equalTo("Not Found")); // validate that message method is not found
     }
 
     /*
