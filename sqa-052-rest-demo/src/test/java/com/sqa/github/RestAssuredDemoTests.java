@@ -40,6 +40,7 @@ public class RestAssuredDemoTests implements TestLogger {
                 .then()
                 .log().ifValidationFails()
                 .body(Matchers.not(Matchers.empty())); // validate that response body is not empty
+        //      .body(Matchers.matchesPattern("[A-Z a-z.]*");
     }
 
     /*
@@ -53,7 +54,9 @@ public class RestAssuredDemoTests implements TestLogger {
                 .get("/repos/musagulov/sqa/issues")
                 .then()
                 .log().ifValidationFails()
-                .body("message", Matchers.equalTo("Not Found")); // validate that message method is not found
+                .body("message", Matchers.notNullValue())
+                .body("message", Matchers.equalTo("Not Found")); /* validate that message field is
+                                                                            not found within the JSON response */
     }
 
     /*
@@ -61,7 +64,15 @@ public class RestAssuredDemoTests implements TestLogger {
     */
     @Test
     public void verifyIssuesAuthorized() {
-
+        given()
+                .baseUri(BASE_URI)
+                .header("Authorization", "Bearer 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")
+                .when()
+                .get("/repos/musagulov/sqa/issues")
+                .then()
+                .log().ifValidationFails()
+                .body("title", Matchers.hasItems("issue3"));  /* validate that title field contains
+                                                                    some items within the JSON response */
     }
 
     /*
