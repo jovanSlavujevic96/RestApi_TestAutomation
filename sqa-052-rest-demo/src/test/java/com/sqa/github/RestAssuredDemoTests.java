@@ -4,6 +4,8 @@ import com.sqa.utils.TestLogger;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Test;
 
+import static io.restassured.RestAssured.given;
+
 public class RestAssuredDemoTests implements TestLogger {
 
     private String issueTitle = String.format("issue %s", RandomStringUtils.randomAlphabetic(5));
@@ -14,7 +16,11 @@ public class RestAssuredDemoTests implements TestLogger {
     */
     @Test
     public void verifyHealthcheckTest() {
-
+        given()
+                .when()
+                .get("https://api.github.com/zen")
+                .then()
+                .statusCode(200);
     }
 
     /*
