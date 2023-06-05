@@ -8,6 +8,7 @@ import static io.restassured.RestAssured.given;
 
 public class RestAssuredDemoTests implements TestLogger {
 
+    private static final String BASE_URI = "https://api.github.com";
     private String issueTitle = String.format("issue %s", RandomStringUtils.randomAlphabetic(5));
     private String issueDescription = "Description of new issue";
 
@@ -17,7 +18,7 @@ public class RestAssuredDemoTests implements TestLogger {
     @Test
     public void verifyHealthcheckTest() {
         given()
-                .baseUri("https://api.github.com")
+                .baseUri(BASE_URI)
                 .when()
                     .get("/zen")
                 .then()
