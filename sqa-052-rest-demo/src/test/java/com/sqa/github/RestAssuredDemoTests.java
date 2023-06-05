@@ -2,6 +2,7 @@ package com.sqa.github;
 
 import com.sqa.utils.TestLogger;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -9,6 +10,7 @@ import static io.restassured.RestAssured.given;
 public class RestAssuredDemoTests implements TestLogger {
 
     private static final String BASE_URI = "https://api.github.com";
+    private static final String ZEN_END_PINT = "/zen";
     private String issueTitle = String.format("issue %s", RandomStringUtils.randomAlphabetic(5));
     private String issueDescription = "Description of new issue";
 
@@ -20,10 +22,10 @@ public class RestAssuredDemoTests implements TestLogger {
         given()
                 .baseUri(BASE_URI)
                 .when()
-                    .get("/zen")
+                .get(ZEN_END_PINT)
                 .then()
-                    .log().all() // everything we are using after then it will be logged -> logs all response
-                    .statusCode(200);
+                .log().ifValidationFails() // get logs only if validation fails
+                .statusCode(200); // validate that get response code is 200 (OK)
     }
 
     /*
@@ -31,7 +33,13 @@ public class RestAssuredDemoTests implements TestLogger {
     */
     @Test
     public void verifyDefunktBodyTest() {
-
+        given()
+                .baseUri(BASE_URI)
+                .when()
+                .get(ZEN_END_PINT)
+                .then()
+                .log().ifValidationFails()
+                .body(Matchers.not(Matchers.empty())); // validate that response body is not empty
     }
 
     /*
