@@ -1,0 +1,3 @@
+- idealE intelliJ community
+- jdk-8u2022
+- Postman

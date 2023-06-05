@@ -1,0 +1,645 @@
+{
+	"info": {
+		"_postman_id": "b3fe4699-2e53-4205-bbd7-61d54c66fda3",
+		"name": "sqa-rest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "a. gorest get users",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v1/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "b. gorest create user (no auth)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"email\": \"jdoe@jdoe.com\",\r\n    \"gender\": \"male\",\r\n    \"status\": \"active\"\r\n}"
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v1/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "c. gorest create user (auth)",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6a2e66915f5232398603c71eda843f6076c46a853840ec5046ae6b7190db7f36",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"email\": \"jdoe@jdoe.com\",\r\n    \"gender\": \"male\",\r\n    \"status\": \"active\"\r\n}"
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v1/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "d. gorest update user",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6a2e66915f5232398603c71eda843f6076c46a853840ec5046ae6b7190db7f36",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Jane Doe\",\r\n    \"email\": \"jdoe@jdoe.com\",\r\n    \"gender\": \"female\",\r\n    \"status\": \"active\"\r\n}"
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v1/users/2741",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v1",
+						"users",
+						"2741"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "e. gorest get user",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v1/users/2741",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v1",
+						"users",
+						"2741"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "e1. gorest get post of user",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v1/users/2741",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v1",
+						"users",
+						"2741"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "e2. gorest get post of user Copy",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v1/users/2741",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v1",
+						"users",
+						"2741"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "c. gorest update post",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6a2e66915f5232398603c71eda843f6076c46a853840ec5046ae6b7190db7f36",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"email\": \"jdoe@jdoe.com\",\r\n    \"gender\": \"male\",\r\n    \"status\": \"active\"\r\n}"
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v1/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "f. gorest delete user",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6a2e66915f5232398603c71eda843f6076c46a853840ec5046ae6b7190db7f36",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v1/users/1810",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v1",
+						"users",
+						"1810"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "01. get zen (status code)",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/zen",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"zen"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02. get defunkt",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server_url}}/users/defunkt",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"users",
+						"defunkt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03. get issues not authorized",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/repos/ilyademchenko/rest/issues",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"repos",
+						"ilyademchenko",
+						"rest",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04. get issues authorized",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{server_url}}/repos/ilyademchenko/rest/issues",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"repos",
+						"ilyademchenko",
+						"rest",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05. get issues without header",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept-encoding": true,
+					"connection": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server_url}}/repos/ilyademchenko/rest/issues",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"repos",
+						"ilyademchenko",
+						"rest",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06. post issue",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/repos/ilyademchenko/rest/issues",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"repos",
+						"ilyademchenko",
+						"rest",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07. post issue using parameters in url",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6a2e66915f5232398603c71eda843f6076c46a853840ec5046ae6b7190db7f36",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v1/users/1813/posts?title=test title&body=test body",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v1",
+						"users",
+						"1813",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "test title"
+						},
+						{
+							"key": "body",
+							"value": "test body"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server_url",
+			"value": "https://api.github.com"
+		}
+	]
+}
